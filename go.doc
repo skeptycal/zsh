@@ -1,8 +1,10 @@
 package zsh // import "github.com/skeptycal/zsh"
 
 Package zsh contains command line utilities designed for use with zsh on
-macOS. It is likely that nearly all of these utilities will work correctly
-on any shell and in any environment, but are not exhaustively tested.
+macOS.
+
+It is likely that nearly all of these utilities will work correctly on any
+shell and in any environment, but are not exhaustively tested.
 
 Examples of utilities available:
 
@@ -18,15 +20,21 @@ access
 var DefaultContext context.Context = context.Background() ...
 func AbsPath(file string) string
 func AppArgs(command string) (string, []string)
+func ChangeCharAfter(content, find, replace string) (string, error)
 func CmdPrep(command string) *exec.Cmd
 func CombinedOutput(command string) string
 func Dir(pathname string) (files []os.FileInfo, err error)
 func Err(err error) error
+func FileCopy(src, dst string) (int, error)
+func FindOccurrence(buf, sub string) (start, end int)
 func GetEnv(key string, defValue string) string
+func GetFile(filename string) (string, error)
+func GetFileUsingExec(filename string) []byte
 func GetRecentTagHash() (string, error)
 func GetStdin(cmd *exec.Cmd) error
 func GitVersionTag() string
 func Home() string
+func MyFile(filename string) string
 func Name(filename string) string
 func NameSplit(filename string) (string, string)
 func Out(command string) string
@@ -40,6 +48,10 @@ func Shell(cmd string) (string, error)
 func SliceUniqMap(s []int) []int
 func Status(command string) error
 func Tree(pathname string) []string
+type Any interface{}
+type FileSet map[string]os.FileInfo
+    func ReDir(pattern, dir string) (fs FileSet)
+type Set interface{ ... }
 type Stringer interface{ ... }
 type TTY interface{ ... }
     func NewTTY() TTY

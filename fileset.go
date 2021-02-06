@@ -1,5 +1,4 @@
-// Package fileset contains a custom slice type for manipulating files and directories.
-package fileset
+package zsh
 
 import (
 	"os"

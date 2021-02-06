@@ -1,5 +1,4 @@
-// Package file contains file utilities for basic scripting and shell operations
-package file
+package zsh
 
 import (
 	"bufio"
