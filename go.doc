@@ -1,0 +1,46 @@
+package zsh // import "github.com/skeptycal/zsh"
+
+Package zsh contains command line utilities designed for use with zsh on
+macOS. It is likely that nearly all of these utilities will work correctly
+on any shell and in any environment, but are not exhaustively tested.
+
+Examples of utilities available:
+
+• `binit` creates links to command line tools in ~/bin to provide path
+access
+
+• `gofind` searches for files and directories matching a pattern
+
+• `ls` lists files and directories in a directory
+
+• `tree` creates a typical visual tree of directories and files
+
+var DefaultContext context.Context = context.Background() ...
+func AbsPath(file string) string
+func AppArgs(command string) (string, []string)
+func CmdPrep(command string) *exec.Cmd
+func CombinedOutput(command string) string
+func Dir(pathname string) (files []os.FileInfo, err error)
+func Err(err error) error
+func GetEnv(key string, defValue string) string
+func GetRecentTagHash() (string, error)
+func GetStdin(cmd *exec.Cmd) error
+func GitVersionTag() string
+func Home() string
+func Name(filename string) string
+func NameSplit(filename string) (string, string)
+func Out(command string) string
+func PipeIn(command string, stdInString string) (string, error)
+func PipeOut(command string) (string, error)
+func RemoveDuplicates(s string, c byte) string
+func Repl(command string) (string, error)
+func Sh(command string) string
+func ShWait(command string) error
+func Shell(cmd string) (string, error)
+func SliceUniqMap(s []int) []int
+func Status(command string) error
+func Tree(pathname string) []string
+type Stringer interface{ ... }
+type TTY interface{ ... }
+    func NewTTY() TTY
+type TrueMap map[string]bool
